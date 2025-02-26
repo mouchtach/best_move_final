@@ -12,9 +12,9 @@
 
 #include "push_swap.h"
 
-static void move_if_top(t_list **stack_a, t_list **stack_b, t_list *tmp)
+static void	move_if_top(t_list **stack_a, t_list **stack_b, t_list *tmp)
 {
-	if(tmp->index <= tmp->target->index)
+	if (tmp->index <= tmp->target->index)
 	{
 		while (tmp->cost--)
 		{
@@ -24,7 +24,7 @@ static void move_if_top(t_list **stack_a, t_list **stack_b, t_list *tmp)
 		while (tmp->target->cost--)
 			ra(stack_a);
 	}
-	else 
+	else
 	{
 		while (tmp->target->cost--)
 		{
@@ -36,9 +36,9 @@ static void move_if_top(t_list **stack_a, t_list **stack_b, t_list *tmp)
 	}
 }
 
-static void move_if_buttom(t_list **stack_a, t_list **stack_b, t_list *tmp)
+static void	move_if_buttom(t_list **stack_a, t_list **stack_b, t_list *tmp)
 {
-	if(tmp->cost <= tmp->target->cost)
+	if (tmp->cost <= tmp->target->cost)
 	{
 		while (tmp->cost--)
 		{
@@ -48,7 +48,7 @@ static void move_if_buttom(t_list **stack_a, t_list **stack_b, t_list *tmp)
 		while (tmp->target->cost--)
 			rra(stack_a);
 	}
-	else 
+	else
 	{
 		while (tmp->target->cost--)
 		{
@@ -59,31 +59,30 @@ static void move_if_buttom(t_list **stack_a, t_list **stack_b, t_list *tmp)
 			rrb(stack_b);
 	}
 }
-
 
 static void	prepar_to_push(t_list **stack_a, t_list **stack_b)
 {
 	t_list	*tmp;
 
 	tmp = get_min_cost(*stack_b);
-	if(tmp->position == 1 && tmp->target->position == 1)
-		move_if_top(stack_a, stack_b, tmp);	
-	else if(tmp->position == 0 && tmp->target->position == 0)
-		move_if_buttom(stack_a, stack_b, tmp);	
-	else if(tmp->position == 1 && tmp->target->position == 0)
+	if (tmp->position == 1 && tmp->target->position == 1)
+		move_if_top(stack_a, stack_b, tmp);
+	else if (tmp->position == 0 && tmp->target->position == 0)
+		move_if_buttom(stack_a, stack_b, tmp);
+	else if (tmp->position == 1 && tmp->target->position == 0)
 	{
 		while (tmp->cost--)
 			rb(stack_b);
 		while (tmp->target->cost--)
 			rra(stack_a);
 	}
-	else 
+	else
 	{
 		while (tmp->target->cost--)
 			ra(stack_a);
 		while (tmp->cost--)
 			rrb(stack_b);
-	}	
+	}
 }
 
 void	push_swap(t_list **stack_a, t_list **stack_b)
@@ -92,7 +91,6 @@ void	push_swap(t_list **stack_a, t_list **stack_b)
 
 	push(stack_a, stack_b);
 	tmp = *stack_a;
-
 	while (tmp)
 	{
 		set_target(*stack_a, *stack_b);
@@ -127,7 +125,7 @@ int	main(int argc, char **argv)
 		return (ft_free_int(&int_argv), 1);
 	if (count <= 3)
 		ft_sort_if_three(&stack_a, &stack_b, count);
-	else 
+	else
 		push_swap(&stack_a, &stack_b);
 	// ft_free_int(&int_argv);
 	ft_free_stack(&stack_a);

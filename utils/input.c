@@ -76,11 +76,11 @@ static int	check_error(char *str)
 	i = 0;
 	while (str[i])
 	{
-		if (!((str[i] >= '0' && str[i] <= '9') 
-				|| (str[i] == '-' || str[i] == '+') || (str[i] == ' ')))
+		if (!((str[i] >= '0' && str[i] <= '9') || (str[i] == '-'
+					|| str[i] == '+') || (str[i] == ' ')))
 			return (1);
-		if (i == 0 && (str[i] == '-' || str[i] == '+') 
-			&& !(str[i + 1] >= '0' && str[i + 1] <= '9'))
+		if (i == 0 && (str[i] == '-' || str[i] == '+') && !(str[i + 1] >= '0'
+				&& str[i + 1] <= '9'))
 			return (1);
 		if (i > 0 && (str[i] == '-' || str[i] == '+'))
 		{
@@ -116,7 +116,7 @@ static char	*read_arg(int argc, char **argv)
 		tmp = ft_strdup(str);
 		ft_free_str(&str);
 		str = ft_strjoin(tmp, argv[i]);
-		free (tmp);
+		free(tmp);
 		argc--;
 		i++;
 	}

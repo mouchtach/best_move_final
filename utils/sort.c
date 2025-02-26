@@ -71,7 +71,8 @@ t_list	*get_min_cost(t_list *stack)
 	small = stack;
 	while (stack)
 	{
-		if ((small->cost + small->target->cost) > (stack->cost + stack->target->cost))
+		if ((small->cost + small->target->cost) > (stack->cost
+				+ stack->target->cost))
 			small = stack;
 		stack = stack->next;
 	}
@@ -82,6 +83,6 @@ void	ft_sort_if_three(t_list **lst_a, t_list **lst_b, int count)
 {
 	if (count == 2)
 		ft_sort_tow(lst_a);
-	else 
+	else
 		ft_sort_three(lst_a);
 }

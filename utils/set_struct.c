@@ -80,30 +80,30 @@ void	set_index(t_list *stack_a, t_list *stack_b)
 
 void	set_cost(t_list *stack_a, t_list *stack_b)
 {
-	int len_a;
-	int len_b;
-	t_list *tmp;
-	
+	int		len_a;
+	int		len_b;
+	t_list	*tmp;
+
 	len_b = ft_lstsize(stack_b);
 	len_a = ft_lstsize(stack_a);
-	tmp  = stack_a;
-	while(tmp)
+	tmp = stack_a;
+	while (tmp)
 	{
-		if(tmp->position == 1)
+		if (tmp->position == 1)
 			tmp->cost = tmp->index;
-		else 
+		else
 			tmp->cost = len_a - tmp->index;
 		tmp = tmp->next;
 	}
 	tmp = stack_b;
-	while(tmp)
+	while (tmp)
 	{
-		if(tmp->position == 1)
+		if (tmp->position == 1)
 			tmp->cost = tmp->index;
-		else 
+		else
 			tmp->cost = len_b - tmp->index;
 		tmp = tmp->next;
-	}	
+	}
 }
 
 void	set_position(t_list *stack_a, t_list *stack_b)

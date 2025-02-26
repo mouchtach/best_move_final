@@ -31,15 +31,17 @@ static int	find_index_data(t_list *stack, int value)
 
 void	push(t_list **stack_a, t_list **stack_b)
 {
-	t_list *tmp;
+	t_list	*tmp;
+	int		len;
+	int		rang;
 
 	tmp = *stack_a;
-	int len = ft_lstsize(*stack_a);
-	int rang = len;
+	len = ft_lstsize(*stack_a);
+	rang = len;
 	tmp = *stack_a;
 	while (len-- && ft_lstsize(*stack_a) > 3)
 	{
-		if((*stack_a)->value <= rang / 2)
+		if ((*stack_a)->value <= rang / 2)
 			pb(stack_a, stack_b);
 		else
 			ra(stack_a);
@@ -77,15 +79,14 @@ void	push(t_list **stack_a, t_list **stack_b)
 
 void	move_a_to_top(t_list **stack_a, t_list *tmp)
 {
-	if(tmp->position == 1)
+	if (tmp->position == 1)
 	{
 		while (tmp->cost--)
 			ra(stack_a);
 	}
-	else 
+	else
 		while (tmp->cost--)
 			rra(stack_a);
-
 }
 
 // int	get_min_stack(t_list *stack)

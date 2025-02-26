@@ -25,7 +25,7 @@ void	ft_free_tab_str(char ***str)
 	int	i;
 
 	i = 0;
-	if (!str || !(*str)) 
+	if (!str || !(*str))
 		return ;
 	while ((*str)[i])
 	{
@@ -65,7 +65,7 @@ void	ft_free_stack(t_list **lst)
 		free(*lst);
 		*lst = tmp;
 	}
-	*lst = NULL; 
+	*lst = NULL;
 }
 
 void	ft_error(void)

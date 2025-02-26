@@ -39,12 +39,14 @@ static void	ft_sort(int **tab, int count)
 	tab[i] = NULL;
 }
 
-
-int ft_get_cost(t_list *stack_a, t_list *stack_b, t_list *tar)
+int	ft_get_cost(t_list *stack_a, t_list *stack_b, t_list *tar)
 {
-	int cost;
-	int len_a = ft_lstsize(stack_a) - tar->target->index;
-	int len_b = ft_lstsize(stack_b) - tar->index;
+	int	cost;
+	int	len_a;
+	int	len_b;
+
+	len_a = ft_lstsize(stack_a) - tar->target->index;
+	len_b = ft_lstsize(stack_b) - tar->index;
 	if (tar->position == 1 && tar->target->position == 1)
 	{
 		if (tar->index >= tar->target->index)
@@ -54,9 +56,9 @@ int ft_get_cost(t_list *stack_a, t_list *stack_b, t_list *tar)
 	}
 	else if (tar->position == 0 && tar->target->position == 0)
 	{
-		if (len_a >= len_b) 
+		if (len_a >= len_b)
 			cost = len_a;
-		else 
+		else
 			cost = len_b;
 	}
 	else if (tar->position == 0 && tar->target->position == 1)
