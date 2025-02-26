@@ -6,7 +6,7 @@
 /*   By: ymouchta <ymouchta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 10:31:26 by ymouchta          #+#    #+#             */
-/*   Updated: 2025/02/16 21:13:29 by ymouchta         ###   ########.fr       */
+/*   Updated: 2025/02/25 21:11:40 by ymouchta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	push(t_list **stack_a, t_list **stack_b)
 	int len = ft_lstsize(*stack_a);
 	int rang = len;
 	tmp = *stack_a;
-	while (len--)
+	while (len-- && ft_lstsize(*stack_a) > 3)
 	{
 		if((*stack_a)->value <= rang / 2)
 			pb(stack_a, stack_b);
@@ -47,91 +47,73 @@ void	push(t_list **stack_a, t_list **stack_b)
 	len = ft_lstsize(*stack_a);
 	while (len-- > 3)
 		pb(stack_a, stack_b);
-	
 	ft_sort_three(stack_a);
-	
-
-	// t_list	*tmp;
-	// int		range;
-
-	// range = get_range(*stack_a);
-	// tmp = *stack_a;
-	// while (tmp && ft_lstsize(*stack_a) > 3)
-	// {
-	// 	if (tmp->data <= range)
-	// 	{
-	// 		ft_move_node_a_to_top(stack_a, tmp->data);
-	// 		pb(stack_a, stack_b);
-	// 		tmp = *stack_a;
-	// 	}
-	// 	else
-	// 		tmp = tmp->next;
-	// }
-	// tmp = *stack_a;
 }
 
-void	ft_move_node_b_to_top(t_list **stack, int value)
-{
-	int	target;
+// void	ft_move_node_b_to_top(t_list **stack, int value)
+// {
+// 	int	target;
 
-	target = find_index_data(*stack, value);
-	if (target == 0)
-		return ;
-	if (target <= ft_lstsize(*stack) / 2)
+// 	target = find_index_data(*stack, value);
+// 	if (target == 0)
+// 		return ;
+// 	if (target <= ft_lstsize(*stack) / 2)
+// 	{
+// 		while (target > 0)
+// 		{
+// 			rb(stack);
+// 			target--;
+// 		}
+// 	}
+// 	else
+// 	{
+// 		while (target < ft_lstsize(*stack))
+// 		{
+// 			rrb(stack);
+// 			target++;
+// 		}
+// 	}
+// }
+
+void	move_a_to_top(t_list **stack_a, t_list *tmp)
+{
+	if(tmp->position == 1)
 	{
-		while (target > 0)
-		{
-			rb(stack);
-			target--;
-		}
+		while (tmp->cost--)
+			ra(stack_a);
 	}
-	else
-	{
-		while (target < ft_lstsize(*stack))
-		{
-			rrb(stack);
-			target++;
-		}
-	}
+	else 
+		while (tmp->cost--)
+			rra(stack_a);
+
 }
 
-void	ft_move_node_a_to_top(t_list **stack, int value)
+// int	get_min_stack(t_list *stack)
+// {
+// 	t_list	*tmp;
+// 	int		min;
+
+// 	tmp = stack;
+// 	min = stack->data;
+// 	while (tmp)
+// 	{
+// 		if (min > tmp->data)
+// 			min = tmp->data;
+// 		tmp = tmp->next;
+// 	}
+// 	return (min);
+// }
+
+t_list	*get_min_data(t_list *stack)
 {
-	int	target;
+	t_list	*small;
 
-	target = find_index_data(*stack, value);
-	if (target == 0)
-		return ;
-	if (target <= ft_lstsize(*stack) / 2)
+	small = stack;
+	while (stack)
 	{
-		while (target > 0)
-		{
-			ra(stack);
-			target--;
-		}
+		if (small->data > stack->data)
+			small = stack;
+		stack = stack->next;
 	}
-	else
-	{
-		while (target < ft_lstsize(*stack))
-		{
-			rra(stack);
-			target++;
-		}
-	}
-}
-
-int	get_min_stack(t_list *stack)
-{
-	t_list	*tmp;
-	int		min;
-
-	tmp = stack;
-	min = stack->data;
-	while (tmp)
-	{
-		if (min > tmp->data)
-			min = tmp->data;
-		tmp = tmp->next;
-	}
-	return (min);
+	return (small);
 }

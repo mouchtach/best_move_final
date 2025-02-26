@@ -6,7 +6,7 @@
 /*   By: ymouchta <ymouchta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 10:31:56 by ymouchta          #+#    #+#             */
-/*   Updated: 2025/02/16 21:26:26 by ymouchta         ###   ########.fr       */
+/*   Updated: 2025/02/25 21:10:49 by ymouchta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 typedef struct s_list
 {
 	int				data;
-	int			index;
+	int				index;
 	int				position;
 	int				cost;
 	int				value;
@@ -74,7 +74,7 @@ int ft_get_cost(t_list *stack_a, t_list *stack_b, t_list *tar);
 void	ft_sort_if_three(t_list **lst_a, t_list **lst_b, int count);
 void	ft_sort_tow(t_list **lst);
 void	ft_sort_three(t_list **lst);
-int		get_range(t_list *stack);
+// int		get_range(t_list *stack);
 t_list	*get_min_cost(t_list *stack);
 
 //set_struct
@@ -84,10 +84,14 @@ void	set_cost(t_list *stack_a, t_list *stack_b);
 void	set_position(t_list *stack_a, t_list *stack_b);
 
 //utils_push
-void	ft_move_node_a_to_top(t_list **stack, int value);
-void	ft_move_node_b_to_top(t_list **stack, int value);
+void	move_a_to_top(t_list **stack_a, t_list *tmp);
+// void	move_a_to_top(t_list **stack_a, t_list **stack_b, t_list *tmp);
+
+// void	ft_move_node_b_to_top(t_list **stack, int value);
 void	push(t_list **stack_a, t_list **stack_b);
-int		get_min_stack(t_list *stack);
+// int		get_min_stack(t_list *stack);
+t_list	*get_min_data(t_list *stack);
+
 
 //input 
 int		**get_int_arg(int argc, char **argv, int *count);

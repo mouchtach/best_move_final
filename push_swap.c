@@ -6,7 +6,7 @@
 /*   By: ymouchta <ymouchta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 10:31:47 by ymouchta          #+#    #+#             */
-/*   Updated: 2025/02/16 21:21:02 by ymouchta         ###   ########.fr       */
+/*   Updated: 2025/02/25 21:10:05 by ymouchta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,7 +103,10 @@ void	push_swap(t_list **stack_a, t_list **stack_b)
 		pa(stack_a, stack_b);
 		tmp = *stack_b;
 	}
-	ft_move_node_a_to_top(stack_a, get_min_stack(*stack_a));
+	set_index(*stack_a, *stack_b);
+	set_position(*stack_a, *stack_b);
+	set_cost(*stack_a, *stack_b);
+	move_a_to_top(stack_a, get_min_data(*stack_a));
 }
 
 int	main(int argc, char **argv)
@@ -113,6 +116,7 @@ int	main(int argc, char **argv)
 	int		**int_argv;
 	int		count;
 
+	count = 0;
 	stack_a = NULL;
 	stack_b = NULL;
 	int_argv = get_int_arg(argc, argv, &count);
@@ -125,6 +129,7 @@ int	main(int argc, char **argv)
 		ft_sort_if_three(&stack_a, &stack_b, count);
 	else 
 		push_swap(&stack_a, &stack_b);
+	// ft_free_int(&int_argv);
 	ft_free_stack(&stack_a);
 	ft_free_stack(&stack_b);
 	return (0);
