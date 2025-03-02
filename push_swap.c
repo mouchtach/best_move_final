@@ -6,7 +6,7 @@
 /*   By: ymouchta <ymouchta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 10:31:47 by ymouchta          #+#    #+#             */
-/*   Updated: 2025/02/25 21:10:05 by ymouchta         ###   ########.fr       */
+/*   Updated: 2025/03/02 23:21:58 by ymouchta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,7 +127,6 @@ int	main(int argc, char **argv)
 		ft_sort_if_three(&stack_a, &stack_b, count);
 	else
 		push_swap(&stack_a, &stack_b);
-	// ft_free_int(&int_argv);
 	ft_free_stack(&stack_a);
 	ft_free_stack(&stack_b);
 	return (0);

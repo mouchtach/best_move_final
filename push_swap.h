@@ -6,7 +6,7 @@
 /*   By: ymouchta <ymouchta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 10:31:56 by ymouchta          #+#    #+#             */
-/*   Updated: 2025/02/25 21:10:49 by ymouchta         ###   ########.fr       */
+/*   Updated: 2025/03/02 23:22:33 by ymouchta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,9 +66,7 @@ int		ft_lstsize(t_list *lst);
 
 //utils_sort
 int		**ft_sort_int_tab(int **tab, int count);
-// int		ft_get_cost(t_list *stack, t_list *tmp);
-int ft_get_cost(t_list *stack_a, t_list *stack_b, t_list *tar);
-
+int		ft_get_cost(t_list *stack_a, t_list *stack_b, t_list *tar);
 
 //sort
 void	ft_sort_if_three(t_list **lst_a, t_list **lst_b, int count);
@@ -91,7 +89,6 @@ void	move_a_to_top(t_list **stack_a, t_list *tmp);
 void	push(t_list **stack_a, t_list **stack_b);
 // int		get_min_stack(t_list *stack);
 t_list	*get_min_data(t_list *stack);
-
 
 //input 
 int		**get_int_arg(int argc, char **argv, int *count);
