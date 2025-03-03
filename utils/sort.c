@@ -6,7 +6,7 @@
 /*   By: ymouchta <ymouchta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 10:31:15 by ymouchta          #+#    #+#             */
-/*   Updated: 2025/02/16 21:02:55 by ymouchta         ###   ########.fr       */
+/*   Updated: 2025/03/03 16:20:50 by ymouchta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,21 +48,6 @@ void	ft_sort_three(t_list **lst)
 	else
 		return ;
 }
-
-// int	get_range(t_list *stack)
-// {
-// 	t_list	*tmp;
-// 	int		total;
-
-// 	tmp = stack;
-// 	total = 0;
-// 	while (tmp)
-// 	{
-// 		total += tmp->data;
-// 		tmp = tmp->next;
-// 	}
-// 	return (total / ft_lstsize(stack));
-// }
 
 t_list	*get_min_cost(t_list *stack)
 {

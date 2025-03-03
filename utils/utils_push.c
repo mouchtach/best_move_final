@@ -6,7 +6,7 @@
 /*   By: ymouchta <ymouchta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 10:31:26 by ymouchta          #+#    #+#             */
-/*   Updated: 2025/02/25 21:11:40 by ymouchta         ###   ########.fr       */
+/*   Updated: 2025/03/03 16:20:34 by ymouchta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,31 +51,6 @@ void	push(t_list **stack_a, t_list **stack_b)
 		pb(stack_a, stack_b);
 	ft_sort_three(stack_a);
 }
-
-// void	ft_move_node_b_to_top(t_list **stack, int value)
-// {
-// 	int	target;
-
-// 	target = find_index_data(*stack, value);
-// 	if (target == 0)
-// 		return ;
-// 	if (target <= ft_lstsize(*stack) / 2)
-// 	{
-// 		while (target > 0)
-// 		{
-// 			rb(stack);
-// 			target--;
-// 		}
-// 	}
-// 	else
-// 	{
-// 		while (target < ft_lstsize(*stack))
-// 		{
-// 			rrb(stack);
-// 			target++;
-// 		}
-// 	}
-// }
 
 void	move_a_to_top(t_list **stack_a, t_list *tmp)
 {

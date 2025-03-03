@@ -6,7 +6,7 @@
 /*   By: ymouchta <ymouchta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 10:31:56 by ymouchta          #+#    #+#             */
-/*   Updated: 2025/03/02 23:22:33 by ymouchta         ###   ########.fr       */
+/*   Updated: 2025/03/03 15:51:14 by ymouchta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,10 +58,10 @@ size_t	ft_strlen(const char *s);
 
 //linked_list
 t_list	*ft_create_stack(int **input, int count);
-void	ft_lstadd_back(t_list **lst, t_list *new);
-t_list	*ft_lstlast(t_list *lst);
-void	ft_lstclear(t_list **lst);
 t_list	*ft_lstnew(int content, int index);
+t_list	*ft_lstlast(t_list *lst);
+void	ft_lstadd_back(t_list **lst, t_list *new);
+void	ft_lstclear(t_list **lst);
 int		ft_lstsize(t_list *lst);
 
 //utils_sort
@@ -72,7 +72,6 @@ int		ft_get_cost(t_list *stack_a, t_list *stack_b, t_list *tar);
 void	ft_sort_if_three(t_list **lst_a, t_list **lst_b, int count);
 void	ft_sort_tow(t_list **lst);
 void	ft_sort_three(t_list **lst);
-// int		get_range(t_list *stack);
 t_list	*get_min_cost(t_list *stack);
 
 //set_struct
@@ -83,11 +82,7 @@ void	set_position(t_list *stack_a, t_list *stack_b);
 
 //utils_push
 void	move_a_to_top(t_list **stack_a, t_list *tmp);
-// void	move_a_to_top(t_list **stack_a, t_list **stack_b, t_list *tmp);
-
-// void	ft_move_node_b_to_top(t_list **stack, int value);
 void	push(t_list **stack_a, t_list **stack_b);
-// int		get_min_stack(t_list *stack);
 t_list	*get_min_data(t_list *stack);
 
 //input 
